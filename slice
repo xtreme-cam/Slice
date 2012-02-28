@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+s,e = ARGV[0].split(',')
+input = ARGV.length > 1 ? File.new(ARGV[1],"r").read : STDIN.read
+lines = input.split("\n")
+
+s = "0" if s.length == 0
+e = "e" if e.nil?
+
+s["e"] = "$" until s["e"].nil?
+e["e"] = "$" until e["e"].nil?
+
+s["$"] = "lines.length" until s["$"].nil?
+e["$"] = "lines.length" until e["$"].nil?
+
+s = eval(s)
+e = eval(e)
+
+split_lines = lines[s..([(e-1),0].max)]
+have_lines = e - s > 0
+print split_lines.join("\n") if have_lines
+print "\n" if have_lines
