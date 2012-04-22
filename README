@@ -1,0 +1,15 @@
+This is a simple command line utlity to output specific line ranges in a file to standard out. Add it to your $PATH.
+
+Examples:
+
+Output the 3rd to 7th lines:
+
+slice 3,7 in.txt
+
+Output the last ten lines:
+
+slice e-10,e in.txt
+
+Output the first half of the license:
+
+cat LICENSE | slice 0,e/2
